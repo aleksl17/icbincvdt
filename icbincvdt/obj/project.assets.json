@@ -1599,11 +1599,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BromTeque\\icbincvdt\\icbincvdt.csproj",
+      "projectUniqueName": "C:\\Users\\BromTeque\\icbincvdt\\icbincvdt\\icbincvdt.csproj",
       "projectName": "icbincvdt",
-      "projectPath": "C:\\Users\\BromTeque\\icbincvdt\\icbincvdt.csproj",
+      "projectPath": "C:\\Users\\BromTeque\\icbincvdt\\icbincvdt\\icbincvdt.csproj",
       "packagesPath": "C:\\Users\\BromTeque\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BromTeque\\icbincvdt\\obj\\",
+      "outputPath": "C:\\Users\\BromTeque\\icbincvdt\\icbincvdt\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
