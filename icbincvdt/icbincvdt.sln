@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "icbincvdt", "icbincvdt.csproj", "{CBFC005F-7E0B-4B77-90FC-8853BFCB4092}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBFC005F-7E0B-4B77-90FC-8853BFCB4092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBFC005F-7E0B-4B77-90FC-8853BFCB4092}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBFC005F-7E0B-4B77-90FC-8853BFCB4092}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBFC005F-7E0B-4B77-90FC-8853BFCB4092}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
