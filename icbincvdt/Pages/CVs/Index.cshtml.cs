@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using icbincvdt.Models;
 
-namespace icbincvdt.Pages.CV
+namespace icbincvdt.Pages.CVs
 {
     public class IndexModel : PageModel
     {

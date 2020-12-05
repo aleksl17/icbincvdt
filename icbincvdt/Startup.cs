@@ -17,25 +17,36 @@ namespace icbincvdt
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
+            Environment = env;
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            if (Environment.IsDevelopment())
+            {
+                services.AddDbContext<RazorPagesCVContext>(options =>
+                    options.UseSqlite(
+                        Configuration.GetConnectionString("RazorPagesCVContext")));
+            }
+            else
+            {
+                services.AddDbContext<RazorPagesCVContext>(options =>
+                    options.UseSqlServer(
+                        Configuration.GetConnectionString("CVContext")));
+            }
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
-
-            services.AddDbContext<RazorPagesCVContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("RazorPagesCVContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using icbincvdt.Models;
 
-namespace icbincvdt.Pages.CV
+namespace icbincvdt.Pages.CVs
 {
     public class CreateModel : PageModel
     {

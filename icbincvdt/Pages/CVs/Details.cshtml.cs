@@ -7,18 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using icbincvdt.Models;
 
-namespace icbincvdt.Pages.CV
+namespace icbincvdt.Pages.CVs
 {
-    public class DeleteModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly RazorPagesCVContext _context;
 
-        public DeleteModel(RazorPagesCVContext context)
+        public DetailsModel(RazorPagesCVContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
         public CV CV { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -35,24 +34,6 @@ namespace icbincvdt.Pages.CV
                 return NotFound();
             }
             return Page();
-        }
-
-        public async Task<IActionResult> OnPostAsync(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            CV = await _context.CV.FindAsync(id);
-
-            if (CV != null)
-            {
-                _context.CV.Remove(CV);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
         }
     }
 }
