@@ -23,6 +23,7 @@ namespace icbincvdt.Models
     public class Education
     {
         public int EducationID { get; set; }
+        
         public string EducationTitle { get; set; }
         public string EducationText { get; set; }
         public string EducationYearRange { get; set; }
