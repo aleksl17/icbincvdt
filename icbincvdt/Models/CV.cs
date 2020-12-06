@@ -8,13 +8,33 @@ namespace icbincvdt.Models
 
         public string Summary { get; set; }
         
-        public IEnumerable<Education> Education { get; set; }
+        private IList<Education> _educations = new List<Education>();
+        public IList<Education> Educations
+        {
+            get { return _educations; }
+            set { _educations = value; }
+        }
         
-        public IEnumerable<Experience> Experience { get; set; }
+        private IList<Experience> _experiences = new List<Experience>();
+        public IList<Experience> Experiences
+        {
+            get { return _experiences; }
+            set { _experiences = value; }
+        }
         
-        public IEnumerable<Skill> Skill { get; set; }
+        private IList<Skill> _skills = new List<Skill>();
+        public IList<Skill> Skills
+        {
+            get { return _skills; }
+            set { _skills = value; }
+        }
         
-        public IEnumerable<Reference> Reference { get; set; }
+        private IList<Reference> _references = new List<Reference>();
+        public IList<Reference> References
+        {
+            get { return _references; }
+            set { _references = value; }
+        }
     }
 }
 
