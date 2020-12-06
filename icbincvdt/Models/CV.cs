@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace icbincvdt.Models
 {
     public class CV
     {
         public int ID { get; set; }
-
+        
+        [Required]
         public string Summary { get; set; }
         
         private IList<Education> _educations = new List<Education>();
@@ -36,10 +38,7 @@ namespace icbincvdt.Models
             set { _references = value; }
         }
     }
-}
-
-namespace icbincvdt.Models
-{
+    
     public class Education
     {
         public int EducationID { get; set; }
@@ -48,10 +47,7 @@ namespace icbincvdt.Models
         public string EducationText { get; set; }
         public string EducationYearRange { get; set; }
     }
-}
-
-namespace icbincvdt.Models
-{
+    
     public class Experience
     {
         public int ExperienceID { get; set; }
@@ -60,10 +56,7 @@ namespace icbincvdt.Models
         public string ExperienceText { get; set; }
         public string ExperienceYearRange { get; set; }
     }
-}
-
-namespace icbincvdt.Models
-{
+    
     public class Skill
     {
         public int SkillID { get; set; }
@@ -72,10 +65,7 @@ namespace icbincvdt.Models
         public string SkillText { get; set; }
         public int SkillRating { get; set; }
     }
-}
-
-namespace icbincvdt.Models
-{
+    
     public class Reference
     {
         public int ReferenceID { get; set; }

@@ -15,6 +15,10 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.CV[0].Summary)
+                @Html.DisplayNameFor(model => model.CV[0].Educations)
+                @Html.DisplayNameFor(model => model.CV[0].Experiences)
+                @Html.DisplayNameFor(model => model.CV[0].Skills)
+                @Html.DisplayNameFor(model => model.CV[0].References)
             </th>
             <th></th>
         </tr>
@@ -24,6 +28,38 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Summary)
+                @foreach (var eduItem in item.Educations)
+                {
+                    @Html.DisplayFor(modelItem => eduItem.EducationTitle)
+                    @Html.DisplayFor(modelItem => eduItem.EducationText)
+                    @Html.DisplayFor(modelItem => eduItem.EducationYearRange)
+                }
+
+                @*@Html.DisplayFor(modelItem => item.Educations[0].EducationTitle)*@
+                @Html.DisplayFor(modelItem => item.Experiences)
+                @Html.DisplayFor(modelItem => item.Skills)
+                @Html.DisplayFor(modelItem => item.References)
+                
+                @*@foreach (var edu in Model.CV.Educations)
+                {
+                    int ii = i;
+                    @Html.DisplayFor(modelItem => item.Educations[i])
+                }
+                @for (var i = 0; i < item.Experiences.Count; i++)
+                {
+                    int ii = i;
+                    @Html.DisplayFor(modelItem => item.Experiences[i])
+                }
+                @for (var i = 0; i < item.Skills.Count; i++)
+                {
+                    int ii = i;
+                    @Html.DisplayFor(modelItem => item.Skills[i])
+                }
+                @for (var i = 0; i < item.References.Count; i++)
+                {
+                    int ii = i;
+                    @Html.DisplayFor(modelItem => item.References[i])
+                }*@
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
