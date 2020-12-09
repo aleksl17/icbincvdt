@@ -5,15 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using icbincvdt.Data;
 using icbincvdt.Models;
 
 namespace icbincvdt.Pages.CVs
 {
     public class DetailsModel : PageModel
     {
-        private readonly RazorPagesCVContext _context;
+        private readonly icbincvdt.Data.CVContext _context;
 
-        public DetailsModel(RazorPagesCVContext context)
+        public DetailsModel(icbincvdt.Data.CVContext context)
         {
             _context = context;
         }
@@ -27,7 +28,7 @@ namespace icbincvdt.Pages.CVs
                 return NotFound();
             }
 
-            CV = await _context.CV.FirstOrDefaultAsync(m => m.ID == id);
+            CV = await _context.CVs.FirstOrDefaultAsync(m => m.CVID == id);
 
             if (CV == null)
             {

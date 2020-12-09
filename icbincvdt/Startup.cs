@@ -31,19 +31,22 @@ namespace icbincvdt
         {
             if (Environment.IsDevelopment())
             {
-                services.AddDbContext<RazorPagesCVContext>(options =>
+                services.AddDbContext<CVContext>(options =>
                     options.UseSqlite(
-                        Configuration.GetConnectionString("RazorPagesCVContext")));
+                        Configuration.GetConnectionString("CVContext")));
+                services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlite(
+                        Configuration.GetConnectionString("DefaultConnection")));
             }
             else
             {
-                services.AddDbContext<RazorPagesCVContext>(options =>
+                services.AddDbContext<CVContext>(options =>
                     options.UseSqlServer(
                         Configuration.GetConnectionString("CVContext")));
+                services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlServer(
+                        Configuration.GetConnectionString("DefaultConnection")));
             }
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(
-                    Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();

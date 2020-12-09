@@ -33,4 +33,16 @@
       <_ContentIncludedByDefault Remove="Pages\CVs\Index.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Pages\CVs\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\CVs\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\CVs\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\CVs\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\CVs\Index.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Migrations" />
+    </ItemGroup>
+
 </Project>

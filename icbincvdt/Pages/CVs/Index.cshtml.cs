@@ -5,15 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using icbincvdt.Data;
 using icbincvdt.Models;
 
 namespace icbincvdt.Pages.CVs
 {
     public class IndexModel : PageModel
     {
-        private readonly RazorPagesCVContext _context;
+        private readonly icbincvdt.Data.CVContext _context;
 
-        public IndexModel(RazorPagesCVContext context)
+        public IndexModel(icbincvdt.Data.CVContext context)
         {
             _context = context;
         }
@@ -22,7 +23,7 @@ namespace icbincvdt.Pages.CVs
 
         public async Task OnGetAsync()
         {
-            CV = await _context.CV.ToListAsync();
+            CV = await _context.CVs.ToListAsync();
         }
     }
 }

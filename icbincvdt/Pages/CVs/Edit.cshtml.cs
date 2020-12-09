@@ -6,15 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using icbincvdt.Data;
 using icbincvdt.Models;
 
 namespace icbincvdt.Pages.CVs
 {
     public class EditModel : PageModel
     {
-        private readonly RazorPagesCVContext _context;
+        private readonly icbincvdt.Data.CVContext _context;
 
-        public EditModel(RazorPagesCVContext context)
+        public EditModel(icbincvdt.Data.CVContext context)
         {
             _context = context;
         }
@@ -29,7 +30,7 @@ namespace icbincvdt.Pages.CVs
                 return NotFound();
             }
 
-            CV = await _context.CV.FirstOrDefaultAsync(m => m.ID == id);
+            CV = await _context.CVs.FirstOrDefaultAsync(m => m.CVID == id);
 
             if (CV == null)
             {
@@ -55,7 +56,7 @@ namespace icbincvdt.Pages.CVs
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CVExists(CV.ID))
+                if (!CVExists(CV.CVID))
                 {
                     return NotFound();
                 }
@@ -70,7 +71,7 @@ namespace icbincvdt.Pages.CVs
 
         private bool CVExists(int id)
         {
-            return _context.CV.Any(e => e.ID == id);
+            return _context.CVs.Any(e => e.CVID == id);
         }
     }
 }

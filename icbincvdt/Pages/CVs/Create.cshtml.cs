@@ -5,15 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using icbincvdt.Data;
 using icbincvdt.Models;
 
 namespace icbincvdt.Pages.CVs
 {
     public class CreateModel : PageModel
     {
-        private readonly RazorPagesCVContext _context;
+        private readonly icbincvdt.Data.CVContext _context;
 
-        public CreateModel(RazorPagesCVContext context)
+        public CreateModel(icbincvdt.Data.CVContext context)
         {
             _context = context;
         }
@@ -35,7 +36,7 @@ namespace icbincvdt.Pages.CVs
                 return Page();
             }
 
-            _context.CV.Add(CV);
+            _context.CVs.Add(CV);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
