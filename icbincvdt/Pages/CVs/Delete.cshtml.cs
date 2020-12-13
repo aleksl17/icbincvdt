@@ -21,20 +21,29 @@ namespace icbincvdt.Pages.CVs
 
         [BindProperty]
         public CV CV { get; set; }
+        public string ErrorMessage { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id, bool? saveChangesError = false)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            CV = await _context.CVs.FirstOrDefaultAsync(m => m.CVID == id);
+            CV = await _context.CVs
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.CVID == id);
 
             if (CV == null)
             {
                 return NotFound();
             }
+
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ErrorMessage = "Delete failed. Try again";
+            }
+            
             return Page();
         }
 
@@ -45,15 +54,23 @@ namespace icbincvdt.Pages.CVs
                 return NotFound();
             }
 
-            CV = await _context.CVs.FindAsync(id);
+            var cv = await _context.CVs.FindAsync(id);
 
-            if (CV != null)
+            if (cv == null)
             {
-                _context.CVs.Remove(CV);
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
 
-            return RedirectToPage("./Index");
+            try
+            {
+                _context.CVs.Remove(cv);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+            catch(DbUpdateException)
+            {
+                return RedirectToAction("./Delete", new {id, saveChangesError = true});
+            }
         }
     }
 }

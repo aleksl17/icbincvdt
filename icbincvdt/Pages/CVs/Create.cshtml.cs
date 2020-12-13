@@ -26,20 +26,22 @@ namespace icbincvdt.Pages.CVs
 
         [BindProperty]
         public CV CV { get; set; }
-
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
+        
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            var emptyCV = new CV();
+
+            if (await TryUpdateModelAsync<CV>(
+                emptyCV,
+                "CV",
+                c => c.Summary))
             {
-                return Page();
+                _context.CVs.Add(emptyCV);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
 
-            _context.CVs.Add(CV);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

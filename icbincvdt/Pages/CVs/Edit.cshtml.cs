@@ -38,35 +38,26 @@ namespace icbincvdt.Pages.CVs
             }
             return Page();
         }
-
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        
+        public async Task<IActionResult> OnPostAsync(int id)
         {
-            if (!ModelState.IsValid)
+            var cvToUpdate = await _context.CVs.FindAsync(id);
+
+            if (cvToUpdate == null)
             {
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(CV).State = EntityState.Modified;
-
-            try
+            if (await TryUpdateModelAsync<CV>(
+                cvToUpdate,
+                "CV",
+                c => c.Summary))
             {
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CVExists(CV.CVID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return RedirectToPage("./Index");
             }
 
-            return RedirectToPage("./Index");
+            return Page();
         }
 
         private bool CVExists(int id)
