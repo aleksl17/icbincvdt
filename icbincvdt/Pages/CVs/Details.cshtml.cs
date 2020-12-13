@@ -28,7 +28,13 @@ namespace icbincvdt.Pages.CVs
                 return NotFound();
             }
 
-            CV = await _context.CVs.FirstOrDefaultAsync(m => m.CVID == id);
+            CV = await _context.CVs
+                .Include(ed => ed.Educations)
+                .Include(ex => ex.Experiences)
+                .Include(sk => sk.Skills)
+                .Include(re => re.References)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.CVID == id);
 
             if (CV == null)
             {

@@ -14,19 +14,19 @@ namespace icbincvdt.Data
         {
         }
 
-        public DbSet<icbincvdt.Models.CV> CVs { get; set; }
-        public DbSet<icbincvdt.Models.Education> Educations { get; set; }
-        public DbSet<icbincvdt.Models.Experience> Experiences { get; set; }
-        public DbSet<icbincvdt.Models.Skill> Skills { get; set; }
-        public DbSet<icbincvdt.Models.Reference> References { get; set; }
+        public DbSet<CV> CVs { get; set; }
+        public DbSet<Education> Educations { get; set; }
+        public DbSet<Experience> Experiences { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<Reference> References { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<icbincvdt.Models.CV>().ToTable("CV");
-            modelBuilder.Entity<icbincvdt.Models.Education>().ToTable("Enrollment");
-            modelBuilder.Entity<icbincvdt.Models.Experience>().ToTable("Experience");
-            modelBuilder.Entity<icbincvdt.Models.Skill>().ToTable("Skill");
-            modelBuilder.Entity<icbincvdt.Models.Reference>().ToTable("Reference");
+            modelBuilder.Entity<CV>().ToTable("CV");
+            modelBuilder.Entity<Education>().ToTable("Education");
+            modelBuilder.Entity<Experience>().ToTable("Experience");
+            modelBuilder.Entity<Skill>().ToTable("Skill");
+            modelBuilder.Entity<Reference>().ToTable("Reference");
         }
     }
 }

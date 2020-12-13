@@ -17,6 +17,36 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CV.Summary)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CV.Educations)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Education Title</th>
+                    <th>Education Text</th>
+                    <th>Date Begin</th>
+                    <th>Date End</th>
+                </tr>
+                @foreach (var item in Model.CV.Educations)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EducationTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EducationText)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EducationDateBegin)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EducationDateEnd)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <div>

@@ -47,8 +47,8 @@ namespace icbincvdt
                     options.UseSqlServer(
                         Configuration.GetConnectionString("DefaultConnection")));
             }
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity<IdentityUser>(options =>
+                    options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
         }
 

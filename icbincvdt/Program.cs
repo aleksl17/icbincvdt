@@ -31,8 +31,8 @@ namespace icbincvdt
                 try
                 {
                     var context = services.GetRequiredService<CVContext>();
-                    context.Database.EnsureCreated();
-                    // DbInitializer.Initialize(context);
+                    // context.Database.EnsureCreated();
+                    DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {
