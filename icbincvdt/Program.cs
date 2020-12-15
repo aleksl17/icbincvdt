@@ -32,12 +32,10 @@ namespace icbincvdt
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<CVContext>();
-                    var appContext = services.GetRequiredService <ApplicationDbContext>();
-                    
+                    var context = services.GetRequiredService<ApplicationDbContext>();
                     var um = services.GetRequiredService<UserManager<ApplicationUser>>();
                     // context.Database.EnsureCreated();
-                    DbInitializer.Initialize(context, appContext, um);
+                    DbInitializer.Initialize(context, um);
                 }
                 catch (Exception ex)
                 {

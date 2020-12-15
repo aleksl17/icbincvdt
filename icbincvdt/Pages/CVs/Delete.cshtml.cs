@@ -12,9 +12,9 @@ namespace icbincvdt.Pages.CVs
 {
     public class DeleteModel : PageModel
     {
-        private readonly icbincvdt.Data.CVContext _context;
+        private readonly icbincvdt.Data.ApplicationDbContext _context;
 
-        public DeleteModel(icbincvdt.Data.CVContext context)
+        public DeleteModel(icbincvdt.Data.ApplicationDbContext context)
         {
             _context = context;
         }

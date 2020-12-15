@@ -12,9 +12,9 @@ namespace icbincvdt.Pages.CVs
 {
     public class CreateModel : PageModel
     {
-        private readonly icbincvdt.Data.CVContext _context;
+        private readonly icbincvdt.Data.ApplicationDbContext _context;
 
-        public CreateModel(icbincvdt.Data.CVContext context)
+        public CreateModel(icbincvdt.Data.ApplicationDbContext context)
         {
             _context = context;
         }

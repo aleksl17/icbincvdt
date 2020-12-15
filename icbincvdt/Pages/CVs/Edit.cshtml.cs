@@ -13,9 +13,9 @@ namespace icbincvdt.Pages.CVs
 {
     public class EditModel : PageModel
     {
-        private readonly icbincvdt.Data.CVContext _context;
+        private readonly icbincvdt.Data.ApplicationDbContext _context;
 
-        public EditModel(icbincvdt.Data.CVContext context)
+        public EditModel(icbincvdt.Data.ApplicationDbContext context)
         {
             _context = context;
         }

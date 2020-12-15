@@ -8,19 +8,21 @@ namespace icbincvdt.Data
 {
     public class DbInitializer
     {
-        public static void Initialize(CVContext context, ApplicationDbContext appContext, UserManager<ApplicationUser> um)
+        public static void Initialize(ApplicationDbContext context, UserManager<ApplicationUser> um)
         {
-            appContext.Database.EnsureCreated();
+            // For debugging, comment out before deployment.
+            context.Database.EnsureDeleted();
+            
             context.Database.EnsureCreated();
 
             // Check if there are any CVs
-            if (context.CVs.Any() | appContext.Users.Any())
+            if (context.Users.Any())
             {
                 Console.Write("DB already seeded.");
                 return; // DB has been seeded
             }
-
-            var usr0 = new ApplicationUser {UserName = "ola@uia.no", Email = "ola@uia.no"};
+            
+            var usr0 = new ApplicationUser {UserName = "ola@uia.no", Email = "ola@uia.no", };
             um.CreateAsync(usr0, "Password1.").Wait();
             
             var usr1 = new ApplicationUser {UserName = "kari@uia.no", Email = "kari@uia.no"};
@@ -32,12 +34,13 @@ namespace icbincvdt.Data
             var usr3 = new ApplicationUser {UserName = "knut@uia.no", Email = "knut@uia.no"};
             um.CreateAsync(usr3, "Password1.").Wait();
 
-            appContext.SaveChanges();
-            
+            context.SaveChanges();
+
+            /*var usr0IdString = um.GetUserId();
 
             var cvs = new CV[]
             {
-                new CV {Summary = "Little School, lotsa experience."},
+                new CV {UserID = "", Summary = "Little School, lotsa experience."},
                 new CV {Summary = "ICT Major doing Random Stuff for fun."},
                 new CV {Summary = "My life is school and so should yours be."},
                 new CV {Summary = "I'm empty on the inside."}
@@ -98,7 +101,7 @@ namespace icbincvdt.Data
             };
             
             context.References.AddRange(references);
-            context.SaveChanges();
+            context.SaveChanges();*/
             
             Console.Write("DB seeded!");
         }

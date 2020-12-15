@@ -12,9 +12,9 @@ namespace icbincvdt.Pages.CVs
 {
     public class IndexModel : PageModel
     {
-        private readonly icbincvdt.Data.CVContext _context;
+        private readonly icbincvdt.Data.ApplicationDbContext _context;
 
-        public IndexModel(icbincvdt.Data.CVContext context)
+        public IndexModel(icbincvdt.Data.ApplicationDbContext context)
         {
             _context = context;
         }
