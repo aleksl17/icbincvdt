@@ -32,10 +32,15 @@ namespace icbincvdt
                 var services = scope.ServiceProvider;
                 try
                 {
+                    // Get our database context from the service provider
                     var context = services.GetRequiredService<ApplicationDbContext>();
                     var um = services.GetRequiredService<UserManager<ApplicationUser>>();
-                    // context.Database.EnsureCreated();
-                    DbInitializer.Initialize(context, um);
+                    
+                    // Get the environment so we can check if this is running in development or otherwise
+                    var environment = services.GetService<IHostEnvironment>();
+                    
+                    // Initialise the database using the initializer.
+                    DbInitializer.Initialize(context, um, environment.IsDevelopment());
                 }
                 catch (Exception ex)
                 {

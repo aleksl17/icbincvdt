@@ -18,9 +18,9 @@ namespace icbincvdt
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IWebHostEnvironment env)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
-            Environment = env;
+            Environment = environment;
             Configuration = configuration;
         }
 
@@ -39,7 +39,7 @@ namespace icbincvdt
             else
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(
+                    options.UseNpgsql(
                         Configuration.GetConnectionString("DefaultConnection")));
             }
             services.AddDefaultIdentity<ApplicationUser>(options =>
@@ -48,9 +48,9 @@ namespace icbincvdt
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment environment)
         {
-            if (env.IsDevelopment())
+            if (environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();

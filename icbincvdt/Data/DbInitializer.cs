@@ -3,13 +3,23 @@ using System.Linq;
 using icbincvdt.Data;
 using icbincvdt.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace icbincvdt.Data
 {
     public class DbInitializer
     {
-        public static void Initialize(ApplicationDbContext context, UserManager<ApplicationUser> um)
+        public static void Initialize(ApplicationDbContext context, UserManager<ApplicationUser> um, bool development)
         {
+            // Run migrations if we're not in development mode
+            if (!development)
+            {
+                context.Database.Migrate();
+                return;
+            }
+            
+            // If we are in development mode the code below is run.
+            
             // For debugging, comment out before deployment.
             context.Database.EnsureDeleted();
             
