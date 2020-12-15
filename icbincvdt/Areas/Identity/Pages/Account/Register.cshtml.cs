@@ -50,6 +50,40 @@ namespace icbincvdt.Areas.Identity.Pages.Account
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
+            
+            [Required]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+            
+            [Required]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+            
+            [Display(Name = "Address Line 1")]
+            public string Address { get; set; }
+            
+            [Display(Name = "Address Line 2 (Optional)")]
+            public string AddressTwo { get; set; }
+            
+            [Display(Name = "Zip code")]
+            public int ZipCode { get; set; }
+            
+            [Display(Name = "City")]
+            public string City { get; set; }
+            
+            [Display(Name = "Country")]
+            public string Country { get; set; }
+            
+            [Display(Name = "Twitter (Optional)")]
+            public string TwitterUsername { get; set; }
+            [Display(Name = "Facebook (Optional)")]
+            public string FacebookUsername { get; set; }
+            [Display(Name = "LinkedIn (Optional)")]
+            public string LinkedInUsername { get; set; }
+            [Display(Name = "Instagram (Optional)")]
+            public string InstagramUsername { get; set; }
+            [Display(Name = "YouTube (Optional)")]
+            public string YouTubeUsername { get; set; }
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -75,7 +109,18 @@ namespace icbincvdt.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = Input.Email,
+                    Email = Input.Email,
+                    FirstName = Input.FirstName,
+                    LastName = Input.LastName,
+                    Address = Input.Address,
+                    AddressTwo = Input.AddressTwo,
+                    ZipCode = Input.ZipCode,
+                    City = Input.City,
+                    Country = Input.Country
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
