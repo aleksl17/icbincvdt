@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using icbincvdt.Data;
+using icbincvdt.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace icbincvdt
@@ -31,8 +33,11 @@ namespace icbincvdt
                 try
                 {
                     var context = services.GetRequiredService<CVContext>();
+                    var appContext = services.GetRequiredService <ApplicationDbContext>();
+                    
+                    var um = services.GetRequiredService<UserManager<ApplicationUser>>();
                     // context.Database.EnsureCreated();
-                    DbInitializer.Initialize(context);
+                    DbInitializer.Initialize(context, appContext, um);
                 }
                 catch (Exception ex)
                 {

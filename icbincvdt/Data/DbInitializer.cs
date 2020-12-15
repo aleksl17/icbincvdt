@@ -2,20 +2,38 @@
 using System.Linq;
 using icbincvdt.Data;
 using icbincvdt.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace icbincvdt.Data
 {
     public class DbInitializer
     {
-        public static void Initialize(CVContext context)
+        public static void Initialize(CVContext context, ApplicationDbContext appContext, UserManager<ApplicationUser> um)
         {
+            appContext.Database.EnsureCreated();
             context.Database.EnsureCreated();
 
             // Check if there are any CVs
-            if (context.CVs.Any())
+            if (context.CVs.Any() | appContext.Users.Any())
             {
+                Console.Write("DB already seeded.");
                 return; // DB has been seeded
             }
+
+            var usr0 = new ApplicationUser {UserName = "ola@uia.no", Email = "ola@uia.no"};
+            um.CreateAsync(usr0, "Password1.").Wait();
+            
+            var usr1 = new ApplicationUser {UserName = "kari@uia.no", Email = "kari@uia.no"};
+            um.CreateAsync(usr1, "Password1.").Wait();
+            
+            var usr2 = new ApplicationUser {UserName = "per@uia.no", Email = "per@uia.no"};
+            um.CreateAsync(usr2, "Password1.").Wait();
+            
+            var usr3 = new ApplicationUser {UserName = "knut@uia.no", Email = "knut@uia.no"};
+            um.CreateAsync(usr3, "Password1.").Wait();
+
+            appContext.SaveChanges();
+            
 
             var cvs = new CV[]
             {
@@ -81,6 +99,8 @@ namespace icbincvdt.Data
             
             context.References.AddRange(references);
             context.SaveChanges();
+            
+            Console.Write("DB seeded!");
         }
     }
 }
