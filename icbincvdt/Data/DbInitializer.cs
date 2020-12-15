@@ -22,22 +22,20 @@ namespace icbincvdt.Data
                 return; // DB has been seeded
             }
             
-            var usr0 = new ApplicationUser {UserName = "ola@uia.no", Email = "ola@uia.no", };
+            var usr0 = new ApplicationUser {UserName = "ola@uia.no", Email = "ola@uia.no", EmailConfirmed = true};
             um.CreateAsync(usr0, "Password1.").Wait();
             
-            var usr1 = new ApplicationUser {UserName = "kari@uia.no", Email = "kari@uia.no"};
+            var usr1 = new ApplicationUser {UserName = "kari@uia.no", Email = "kari@uia.no", EmailConfirmed = true};
             um.CreateAsync(usr1, "Password1.").Wait();
             
-            var usr2 = new ApplicationUser {UserName = "per@uia.no", Email = "per@uia.no"};
+            var usr2 = new ApplicationUser {UserName = "per@uia.no", Email = "per@uia.no", EmailConfirmed = true};
             um.CreateAsync(usr2, "Password1.").Wait();
             
-            var usr3 = new ApplicationUser {UserName = "knut@uia.no", Email = "knut@uia.no"};
+            var usr3 = new ApplicationUser {UserName = "knut@uia.no", Email = "knut@uia.no", EmailConfirmed = true};
             um.CreateAsync(usr3, "Password1.").Wait();
 
             context.SaveChanges();
-
-            /*var usr0IdString = um.GetUserId();
-
+            
             var cvs = new CV[]
             {
                 new CV {UserID = "", Summary = "Little School, lotsa experience."},
@@ -101,7 +99,7 @@ namespace icbincvdt.Data
             };
             
             context.References.AddRange(references);
-            context.SaveChanges();*/
+            context.SaveChanges();
             
             Console.Write("DB seeded!");
         }
