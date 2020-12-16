@@ -10,11 +10,11 @@ using icbincvdt.Models;
 
 namespace icbincvdt.Pages.CVs
 {
-    public class SharCVModel : PageModel
+    public class ShareCVModel : PageModel
     {
         private readonly icbincvdt.Data.ApplicationDbContext _context;
 
-        public SharCVModel(icbincvdt.Data.ApplicationDbContext context)
+        public ShareCVModel(icbincvdt.Data.ApplicationDbContext context)
         {
             _context = context;
         }
