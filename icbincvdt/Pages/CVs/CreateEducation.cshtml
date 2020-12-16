@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Add Education";
+    ViewData["TheCVID"] = Request.Query["id"];
 }
 
 <h1>Add Education</h1>
@@ -13,28 +14,32 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="CV.CVID" />
+            <input type="hidden" asp-for="Education.CVID" value="@ViewData["TheCVID"]"/>
+            @*<div class="form-group">
+                <label asp-for="Education.CVID" class="control-label"></label>
+                <input asp-for="Education.CVID" class="form-control">
+                <span asp-validation-for="Education.CVID" class="text-danger"></span>
+            </div>*@
             <div class="form-group">
                 <label asp-for="Education.EducationTitle" class="control-label"></label>
-                <input asp-for="Education.EducationTitle" class="form-control" rows="3">
+                <input asp-for="Education.EducationTitle" class="form-control">
                 <span asp-validation-for="Education.EducationTitle" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Education.EducationText" class="control-label"></label>
-                <input asp-for="Education.EducationText" class="form-control" rows="3">
+                <input asp-for="Education.EducationText" class="form-control">
                 <span asp-validation-for="Education.EducationText" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Education.EducationDateBegin" class="control-label"></label>
-                <input asp-for="Education.EducationDateBegin" class="form-control" rows="3">
+                <input asp-for="Education.EducationDateBegin" class="form-control">
                 <span asp-validation-for="Education.EducationDateBegin" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Education.EducationDateEnd" class="control-label"></label>
-                <input asp-for="Education.EducationDateEnd" class="form-control" rows="3">
+                <input asp-for="Education.EducationDateEnd" class="form-control">
                 <span asp-validation-for="Education.EducationDateEnd" class="text-danger"></span>
             </div>
-            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -43,7 +48,7 @@
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="MyCVs">Back to My CVs</a>
 </div>
 
 @section Scripts {

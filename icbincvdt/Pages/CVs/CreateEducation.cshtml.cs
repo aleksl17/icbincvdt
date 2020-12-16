@@ -21,15 +21,7 @@ namespace icbincvdt.Pages.CVs
         {
             _context = context;
         }
-
-        public IActionResult OnGet()
-        {
-            return Page();
-        }
         
-        [BindProperty]
-        public CV CV { get; set; }
-
         [BindProperty]
         public Education Education { get; set; }
         
@@ -39,20 +31,14 @@ namespace icbincvdt.Pages.CVs
             {
                 return NotFound();
             }
-
-            CV = await _context.CVs.FirstOrDefaultAsync(e => e.CVID == id);
-
-            if (CV == null)
-            {
-                return NotFound();
-            }
+            
             return Page();
         }
         
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(int id)
         {
             var emptyEducation = new Education();
-
+            
             if (await TryUpdateModelAsync<Education>(
                 emptyEducation,
                 "Education",

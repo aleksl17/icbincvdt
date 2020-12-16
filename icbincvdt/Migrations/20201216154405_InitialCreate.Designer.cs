@@ -10,7 +10,7 @@ using icbincvdt.Data;
 namespace icbincvdt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201216112416_InitialCreate")]
+    [Migration("20201216154405_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
