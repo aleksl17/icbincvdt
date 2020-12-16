@@ -2,18 +2,50 @@
 @model icbincvdt.Pages.CVs.CreateEducationModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Add Education";
 }
 
-<!DOCTYPE html>
+<h1>Add Education</h1>
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
+<h4>Education</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CV.CVID" />
+            <div class="form-group">
+                <label asp-for="Education.EducationTitle" class="control-label"></label>
+                <input asp-for="Education.EducationTitle" class="form-control" rows="3">
+                <span asp-validation-for="Education.EducationTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Education.EducationText" class="control-label"></label>
+                <input asp-for="Education.EducationText" class="form-control" rows="3">
+                <span asp-validation-for="Education.EducationText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Education.EducationDateBegin" class="control-label"></label>
+                <input asp-for="Education.EducationDateBegin" class="form-control" rows="3">
+                <span asp-validation-for="Education.EducationDateBegin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Education.EducationDateEnd" class="control-label"></label>
+                <input asp-for="Education.EducationDateEnd" class="form-control" rows="3">
+                <span asp-validation-for="Education.EducationDateEnd" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
 </div>
-</body>
-</html>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

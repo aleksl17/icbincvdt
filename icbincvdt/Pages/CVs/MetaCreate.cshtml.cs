@@ -40,7 +40,7 @@ namespace icbincvdt.Pages.CVs
             {
                 _context.CVs.Add(emptyCV);
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("./MyCVs");
             }
 
             return Page();
