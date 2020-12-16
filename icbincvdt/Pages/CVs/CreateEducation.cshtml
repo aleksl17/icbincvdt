@@ -15,11 +15,6 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Education.CVID" value="@ViewData["TheCVID"]"/>
-            @*<div class="form-group">
-                <label asp-for="Education.CVID" class="control-label"></label>
-                <input asp-for="Education.CVID" class="form-control">
-                <span asp-validation-for="Education.CVID" class="text-danger"></span>
-            </div>*@
             <div class="form-group">
                 <label asp-for="Education.EducationTitle" class="control-label"></label>
                 <input asp-for="Education.EducationTitle" class="form-control">

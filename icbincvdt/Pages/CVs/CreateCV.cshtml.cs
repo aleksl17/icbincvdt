@@ -12,11 +12,11 @@ using Microsoft.AspNetCore.Authorization;
 namespace icbincvdt.Pages.CVs
 {
     [Authorize]
-    public class MetaCreateModel : PageModel
+    public class CreateCVModel : PageModel
     {
         private readonly icbincvdt.Data.ApplicationDbContext _context;
 
-        public MetaCreateModel(icbincvdt.Data.ApplicationDbContext context)
+        public CreateCVModel(icbincvdt.Data.ApplicationDbContext context)
         {
             _context = context;
         }
