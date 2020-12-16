@@ -13,8 +13,11 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  /*color: #0366d6; */
-  color: #ff0000;
+  color: cyan;
+}
+
+a:hover{
+  color: darkcyan;
 }
 
 
@@ -43,10 +46,10 @@ html {
 }
 
 .border-top {
-  border-top: 1px solid #79CEF0;     /* changed from  #e5e5e5 (white) to  #808080(black)*/
+  border-top: 1px solid #000000 !important;     /* changed from  #e5e5e5 (white) to  #808080(black)*/
 }
 .border-bottom {
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #000000 !important;
 }
 
 .box-shadow {
@@ -71,6 +74,7 @@ body {
   margin-bottom: 60px;
 }
 .footer {
+  border-block-color: #1b1e21;
   position: absolute;
   bottom: 0;
   width: 100%;

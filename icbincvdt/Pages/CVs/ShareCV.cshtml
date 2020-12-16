@@ -10,7 +10,7 @@
 <div>
     <h4>CV</h4>
     <hr />
-    <dl class="row">
+    <dl class="row" >
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CV.Summary)
         </dt>
@@ -27,12 +27,12 @@
             @Html.DisplayNameFor(model => model.CV.Educations)
         </dt>
         <dd class="col-sm-10">
-            <table class="table">
+            <table class="table table-dark">
                 <tr>
-                    <th>Education Title</th>
-                    <th>Education Text</th>
-                    <th>Date Begin</th>
-                    <th>Date End</th>
+                    <th scope="col">Education Title</th>
+                    <th scope="col">Education Text</th>
+                    <th scope="col">Date Begin</th>
+                    <th scope="col">Date End</th>
                 </tr>
                 @foreach (var item in Model.CV.Educations)
                 {
@@ -57,12 +57,12 @@
             @Html.DisplayNameFor(model => model.CV.Experiences)
         </dt>
         <dd class="col-sm-10">
-            <table class="table">
+            <table class="table table-dark">
                 <tr>
-                    <th>Education Title</th>
-                    <th>Education Text</th>
-                    <th>Date Begin</th>
-                    <th>Date End</th>
+                    <th scope="col">Education Title</th>
+                    <th scope="col">Education Text</th>
+                    <th scope="col">Date Begin</th>
+                    <th scope="col">Date End</th>
                 </tr>
                 @foreach (var item in Model.CV.Experiences)
                 {
@@ -87,11 +87,11 @@
             @Html.DisplayNameFor(model => model.CV.Skills)
         </dt>
         <dd class="col-sm-10">
-            <table class="table">
+            <table class="table table-dark">
                 <tr>
-                    <th>Education Title</th>
-                    <th>Education Text</th>
-                    <th>Date Begin</th>
+                    <th scope="col">Education Title</th>
+                    <th scope="col">Education Text</th>
+                    <th scope="col">Date Begin</th>
                 </tr>
                 @foreach (var item in Model.CV.Skills)
                 {
@@ -113,10 +113,10 @@
             @Html.DisplayNameFor(model => model.CV.References)
         </dt>
         <dd class="col-sm-10">
-            <table class="table">
+            <table class="table table-dark">
                 <tr>
-                    <th>Education Title</th>
-                    <th>Education Text</th>
+                    <th scope="col">Education Title</th>
+                    <th scope="col">Education Text</th>
                 </tr>
                 @foreach (var item in Model.CV.References)
                 {
