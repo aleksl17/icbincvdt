@@ -2,10 +2,10 @@
 @model icbincvdt.Pages.CVs.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "All CVs";
 }
 
-<h1>Index</h1>
+<h1>All CVs</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.CV) {
+    @foreach (var item in Model.CV) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Summary)
@@ -31,6 +31,6 @@
                 <a asp-page="./Delete" asp-route-id="@item.CVID">Delete</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>

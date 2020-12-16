@@ -38,8 +38,4 @@
       <UpToDateCheckInput Remove="Pages\CVs\Index.cshtml" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Migrations" />
-    </ItemGroup>
-
 </Project>
