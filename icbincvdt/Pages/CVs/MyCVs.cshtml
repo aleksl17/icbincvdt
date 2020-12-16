@@ -1,0 +1,40 @@
+﻿@page
+@model icbincvdt.Pages.CVs.MyCVsModel
+
+@{
+    ViewData["Title"] = "My CVs";
+}
+
+<h1>My CVs</h1>
+
+<p>
+    <a asp-page="Create">Create New CV</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CV[0].Summary)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.CV) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summary)
+            </td>
+            <td>
+                <a asp-page="./CreateEducation" asp-route-id="@item.CVID">Add Education</a> |
+                <a asp-page="./CreateExperience" asp-route-id="@item.CVID">Add Excperience</a> |
+                <a asp-page="./CreateSkill" asp-route-id="@item.CVID">Add Skill</a> |
+                <a asp-page="./CreateReference" asp-route-id="@item.CVID">Add Reference</a> |
+                <a asp-page="./Edit" asp-route-id="@item.CVID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CVID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CVID">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,11 +12,11 @@ using Microsoft.AspNetCore.Authorization;
 namespace icbincvdt.Pages.CVs
 {
     [Authorize]
-    public class CreateModel : PageModel
+    public class MetaCreateModel : PageModel
     {
         private readonly icbincvdt.Data.ApplicationDbContext _context;
 
-        public CreateModel(icbincvdt.Data.ApplicationDbContext context)
+        public MetaCreateModel(icbincvdt.Data.ApplicationDbContext context)
         {
             _context = context;
         }
