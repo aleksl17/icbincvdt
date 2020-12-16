@@ -25,7 +25,7 @@ namespace icbincvdt.Pages.CVs
         [BindProperty]
         public Education Education { get; set; }
         
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet(int? id)
         {
             if (id == null)
             {
