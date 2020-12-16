@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,11 +10,11 @@ using icbincvdt.Models;
 
 namespace icbincvdt.Pages.CVs
 {
-    public class DetailsModel : PageModel
+    public class ShareCVModel : PageModel
     {
-        private readonly icbincvdt.Data.CVContext _context;
+        private readonly icbincvdt.Data.ApplicationDbContext _context;
 
-        public DetailsModel(icbincvdt.Data.CVContext context)
+        public ShareCVModel(icbincvdt.Data.ApplicationDbContext context)
         {
             _context = context;
         }

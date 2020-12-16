@@ -8,6 +8,8 @@ namespace icbincvdt.Models
     {
         public int CVID { get; set; }
         
+        public string UserID { get; set; }
+        
         [Required]
         public string Summary { get; set; }
         

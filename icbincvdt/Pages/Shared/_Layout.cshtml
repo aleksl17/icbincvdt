@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using icbincvdt.Models
+@inject SignInManager<ApplicationUser> SignInManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -23,7 +25,7 @@
                         <a class="nav-link text-primary" asp-area="" asp-page="/Index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-primary" asp-area="" asp-page="/CVs/Index">CVs Index</a>
+                        <a class="nav-link text-primary" asp-area="" asp-page="/CVs/AllCVs">All CVs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-primary" asp-area="" asp-page="/Privacy">Privacy</a>

@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using icbincvdt.Data;
+using icbincvdt.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace icbincvdt
@@ -30,9 +32,15 @@ namespace icbincvdt
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<CVContext>();
-                    // context.Database.EnsureCreated();
-                    DbInitializer.Initialize(context);
+                    // Get our database context from the service provider
+                    var context = services.GetRequiredService<ApplicationDbContext>();
+                    var um = services.GetRequiredService<UserManager<ApplicationUser>>();
+                    
+                    // Get the environment so we can check if this is running in development or otherwise
+                    var environment = services.GetService<IHostEnvironment>();
+                    
+                    // Initialise the database using the initializer.
+                    DbInitializer.Initialize(context, um, environment.IsDevelopment());
                 }
                 catch (Exception ex)
                 {

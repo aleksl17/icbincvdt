@@ -1,0 +1,45 @@
+﻿@page
+@model icbincvdt.Pages.CVs.EditSkillModel
+
+@{
+    ViewData["Title"] = "Edit Skill";
+}
+
+<h1>Edit</h1>
+
+<h4>Skill</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Skill.SkillID" />
+            <div class="form-group">
+                <label asp-for="Skill.SkillTitle" class="control-label"></label>
+                <input asp-for="Skill.SkillTitle" class="form-control" />
+                <span asp-validation-for="Skill.SkillTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Skill.SkillText" class="control-label"></label>
+                <input asp-for="Skill.SkillText" class="form-control" />
+                <span asp-validation-for="Skill.SkillText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Skill.SkillRating" class="control-label"></label>
+                <input asp-for="Skill.SkillRating" class="form-control" />
+                <span asp-validation-for="Skill.SkillRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./MyCVs">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

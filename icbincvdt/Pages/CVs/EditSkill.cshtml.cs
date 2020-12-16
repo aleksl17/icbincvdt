@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,17 +11,17 @@ using icbincvdt.Models;
 
 namespace icbincvdt.Pages.CVs
 {
-    public class EditModel : PageModel
+    public class EditSkillModel : PageModel
     {
-        private readonly icbincvdt.Data.CVContext _context;
+        private readonly icbincvdt.Data.ApplicationDbContext _context;
 
-        public EditModel(icbincvdt.Data.CVContext context)
+        public EditSkillModel(icbincvdt.Data.ApplicationDbContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public CV CV { get; set; }
+        public Skill Skill { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,9 +30,9 @@ namespace icbincvdt.Pages.CVs
                 return NotFound();
             }
 
-            CV = await _context.CVs.FirstOrDefaultAsync(m => m.CVID == id);
+            Skill = await _context.Skills.FirstOrDefaultAsync(m => m.SkillID == id);
 
-            if (CV == null)
+            if (Skill == null)
             {
                 return NotFound();
             }
@@ -41,28 +41,30 @@ namespace icbincvdt.Pages.CVs
         
         public async Task<IActionResult> OnPostAsync(int id)
         {
-            var cvToUpdate = await _context.CVs.FindAsync(id);
+            var skillToUpdate = await _context.Skills.FindAsync(id);
 
-            if (cvToUpdate == null)
+            if (skillToUpdate == null)
             {
                 return NotFound();
             }
 
-            if (await TryUpdateModelAsync<CV>(
-                cvToUpdate,
-                "CV",
-                c => c.Summary))
+            if (await TryUpdateModelAsync<Skill>(
+                skillToUpdate,
+                "Skill",
+                c => c.SkillTitle,
+                c => c.SkillText,
+                c => c.SkillRating))
             {
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("./MyCVs");
             }
 
             return Page();
         }
 
-        private bool CVExists(int id)
+        private bool SkillExist(int id)
         {
-            return _context.CVs.Any(e => e.CVID == id);
+            return _context.Skills.Any(e => e.SkillID == id);
         }
     }
 }

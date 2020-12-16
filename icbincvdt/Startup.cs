@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using icbincvdt.Data;
+using icbincvdt.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,9 +18,9 @@ namespace icbincvdt
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IWebHostEnvironment env)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
-            Environment = env;
+            Environment = environment;
             Configuration = configuration;
         }
 
@@ -31,31 +32,25 @@ namespace icbincvdt
         {
             if (Environment.IsDevelopment())
             {
-                services.AddDbContext<CVContext>(options =>
-                    options.UseSqlite(
-                        Configuration.GetConnectionString("CVContext")));
                 services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlite(
                         Configuration.GetConnectionString("DefaultConnection")));
             }
             else
             {
-                services.AddDbContext<CVContext>(options =>
-                    options.UseSqlServer(
-                        Configuration.GetConnectionString("CVContext")));
                 services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(
+                    options.UseNpgsql(
                         Configuration.GetConnectionString("DefaultConnection")));
             }
-            services.AddDefaultIdentity<IdentityUser>(options =>
+            services.AddDefaultIdentity<ApplicationUser>(options =>
                     options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment environment)
         {
-            if (env.IsDevelopment())
+            if (environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();

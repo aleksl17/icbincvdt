@@ -1,0 +1,40 @@
+﻿@page
+@model icbincvdt.Pages.CVs.EditReferenceModel
+
+@{
+    ViewData["Title"] = "Edit Reference";
+}
+
+<h1>Edit</h1>
+
+<h4>Reference</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Reference.ReferenceID" />
+            <div class="form-group">
+                <label asp-for="Reference.ReferenceName" class="control-label"></label>
+                <input asp-for="Reference.ReferenceName" class="form-control" />
+                <span asp-validation-for="Reference.ReferenceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reference.ReferencePhoneNumber" class="control-label"></label>
+                <input asp-for="Reference.ReferencePhoneNumber" class="form-control" />
+                <span asp-validation-for="Reference.ReferencePhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./MyCVs">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

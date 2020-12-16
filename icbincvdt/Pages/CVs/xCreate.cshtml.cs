@@ -7,14 +7,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using icbincvdt.Data;
 using icbincvdt.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace icbincvdt.Pages.CVs
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
-        private readonly icbincvdt.Data.CVContext _context;
+        private readonly icbincvdt.Data.ApplicationDbContext _context;
 
-        public CreateModel(icbincvdt.Data.CVContext context)
+        public CreateModel(icbincvdt.Data.ApplicationDbContext context)
         {
             _context = context;
         }
