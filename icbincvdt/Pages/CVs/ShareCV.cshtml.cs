@@ -7,18 +7,20 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using icbincvdt.Data;
 using icbincvdt.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace icbincvdt.Pages.CVs
 {
     public class ShareCVModel : PageModel
     {
         private readonly icbincvdt.Data.ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _um;
 
-        public ShareCVModel(icbincvdt.Data.ApplicationDbContext context)
+        public ShareCVModel(icbincvdt.Data.ApplicationDbContext context, UserManager<ApplicationUser> um)
         {
             _context = context;
+            _um = um;
         }
-
         public CV CV { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)

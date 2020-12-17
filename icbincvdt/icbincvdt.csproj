@@ -38,4 +38,8 @@
       <UpToDateCheckInput Remove="Pages\CVs\Index.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Include="wwwroot\cv.png" />
+    </ItemGroup>
+
 </Project>
