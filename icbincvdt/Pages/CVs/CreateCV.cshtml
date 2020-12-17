@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    ViewData["TheUserID"] = Request.Query["id"];
 }
 
 <h1>Create</h1>
@@ -13,6 +14,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CV.UserID" value="@ViewData["TheUserID"]"/>
             <div class="form-group">
                 <label asp-for="CV.Summary" class="control-label"></label>
                 <textarea asp-for="CV.Summary" class="form-control" rows="3"></textarea>

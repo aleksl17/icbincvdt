@@ -36,6 +36,7 @@ namespace icbincvdt.Pages.CVs
             if (await TryUpdateModelAsync<CV>(
                 emptyCV,
                 "CV",
+                c => c.UserID,
                 c => c.Summary))
             {
                 _context.CVs.Add(emptyCV);

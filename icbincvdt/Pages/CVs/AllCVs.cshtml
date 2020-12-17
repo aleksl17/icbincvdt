@@ -7,9 +7,6 @@
 
 <h1>All CVs</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table table-dark">
     <thead>
         <tr>
@@ -26,9 +23,7 @@
                 @Html.DisplayFor(modelItem => item.Summary)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.CVID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.CVID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.CVID">Delete</a>
+                <a asp-page="./ShareCV" asp-route-id="@item.CVID">View</a>
             </td>
         </tr>
     }

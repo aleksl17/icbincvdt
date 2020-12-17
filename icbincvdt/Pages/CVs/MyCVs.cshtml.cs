@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using icbincvdt.Data;
 using icbincvdt.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace icbincvdt.Pages.CVs
 {

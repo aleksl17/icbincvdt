@@ -29,7 +29,7 @@ namespace icbincvdt.Data
             // Check if there are any CVs
             if (context.Users.Any())
             {
-                Console.Write("DB already seeded.");
+                Console.Write("DB already seeded. \n");
                 return; // DB has been seeded
             }
 
@@ -67,7 +67,23 @@ namespace icbincvdt.Data
             um.CreateAsync(usr3, "Password1.").Wait();
 
             context.SaveChanges();
-            
+
+            /*string getUsersAsync(UserManager<ApplicationUser> um)
+            {
+                var userList = um.Users.ToListAsync();
+                var userOne = userList.ToString();
+
+                return userOne;
+            }
+
+            var userList = um.Users.ToList();
+            var userOne = userList.ToString();
+            userList.ForEach(i => Console.Write("{0}\t", i));*/
+            /*var userOneId = userOne;
+            Console.Write("userOne: \n");
+            Console.Write(userOne[0]);
+            Console.Write("\n");*/
+
             /*async Task<List<ApplicationUser>> GetUserAsync()
             {
                 using (um)
@@ -314,7 +330,7 @@ namespace icbincvdt.Data
             context.References.AddRange(references);
             context.SaveChanges();
             
-            Console.Write("DB seeded!");
+            Console.Write("DB seeded! \n");
         }
     }
 }

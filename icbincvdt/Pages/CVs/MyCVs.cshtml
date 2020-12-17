@@ -1,5 +1,7 @@
 ﻿@page
+@using icbincvdt.Models
 @model icbincvdt.Pages.CVs.MyCVsModel
+@inject UserManager<ApplicationUser> UserManager
 
 @{
     ViewData["Title"] = "My CVs";
@@ -8,7 +10,7 @@
 <h1>My CVs</h1>
 
 <p>
-    <a asp-page="CreateCV">Create New CV</a>
+    <a asp-page="./CreateCV" asp-route-id="@UserManager.GetUserId(User)">Create New CV</a>
 </p>
 <table class="table table-dark">
     <thead>
@@ -30,9 +32,9 @@
                 <a asp-page="./CreateExperience" asp-route-id="@item.CVID">Add Excperience</a> |
                 <a asp-page="./CreateSkill" asp-route-id="@item.CVID">Add Skill</a> |
                 <a asp-page="./CreateReference" asp-route-id="@item.CVID">Add Reference</a> |
-                <a asp-page="./Edit" asp-route-id="@item.CVID">Edit</a> |
+                <a asp-page="./EditCV" asp-route-id="@item.CVID">Edit</a> |
                 <a asp-page="./ShareCV" asp-route-id="@item.CVID">Share</a> |
-                <a asp-page="./Delete" asp-route-id="@item.CVID">Delete</a>
+                <a asp-page="./DeleteCV" asp-route-id="@item.CVID">Delete</a>
             </td>
         </tr>
     }
