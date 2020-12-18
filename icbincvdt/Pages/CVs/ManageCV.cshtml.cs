@@ -22,27 +22,13 @@ namespace icbincvdt.Pages.CVs
             _um = um;
         }
         public CV CV { get; set; }
-        /*public ApplicationUser user { get; set; }*/
-        
-        /*#nullable enable*/
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            /*#nullable disable*/
             if (id == null)
             {
                 return NotFound();
             }
-
-            /*user = await _um.Users
-                .Include(u => u.FirstName)
-                .Include(u => u.LastName)
-                .Include(u => u.PhoneNumber)
-                .Include(u => u.Address)
-                .Include(u => u.ZipCode)
-                .Include(u => u.City)
-                .Include(u => u.Country)
-                .AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Id == userId);*/
 
             CV = await _context.CVs
                 .Include(ed => ed.Educations)

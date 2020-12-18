@@ -99,36 +99,6 @@ namespace icbincvdt.Data
             um.CreateAsync(usr3, "Password1.").Wait();
 
             context.SaveChanges();
-
-            /*string getUsersAsync(UserManager<ApplicationUser> um)
-            {
-                var userList = um.Users.ToListAsync();
-                var userOne = userList.ToString();
-
-                return userOne;
-            }
-
-            var userList = um.Users.ToList();
-            var userOne = userList.ToString();
-            userList.ForEach(i => Console.Write("{0}\t", i));*/
-            /*var userOneId = userOne;
-            Console.Write("userOne: \n");
-            Console.Write(userOne[0]);
-            Console.Write("\n");*/
-
-            /*async Task<List<ApplicationUser>> GetUserAsync()
-            {
-                using (um)
-                {
-                    return await um.Users.ToListAsync();
-                }
-            }
-            
-            var userIdList = GetUserAsync();
-            userIdList[0];
-            
-
-            Console.Write(".");*/
             
             // CV Initialization
             var cvs = new CV[]
