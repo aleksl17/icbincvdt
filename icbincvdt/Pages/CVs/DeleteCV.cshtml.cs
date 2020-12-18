@@ -65,11 +65,11 @@ namespace icbincvdt.Pages.CVs
             {
                 _context.CVs.Remove(cv);
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("./MyCVS");
             }
             catch(DbUpdateException)
             {
-                return RedirectToAction("./Delete", new {id, saveChangesError = true});
+                return RedirectToAction("./DeleteCV", new {id, saveChangesError = true});
             }
         }
     }

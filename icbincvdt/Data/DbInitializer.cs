@@ -38,7 +38,15 @@ namespace icbincvdt.Data
             {
                 UserName = "ola@uia.no",
                 Email = "ola@uia.no",
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                FirstName = "Ola",
+                LastName = "Nordmann",
+                PhoneNumber = "01234567",
+                PhoneNumberConfirmed = true,
+                Address = "Olaveien 1",
+                ZipCode = 0101,
+                City = "Oalo",
+                Country = "Norway"
             };
             um.CreateAsync(usr0, "Password1.").Wait();
             
@@ -46,7 +54,15 @@ namespace icbincvdt.Data
             {
                 UserName = "kari@uia.no",
                 Email = "kari@uia.no",
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                FirstName = "Kari",
+                LastName = "Nordmann",
+                PhoneNumber = "87654321",
+                PhoneNumberConfirmed = true,
+                Address = "Kariveien 2",
+                ZipCode = 0202,
+                City = "Kariby",
+                Country = "Norway"
             };
             um.CreateAsync(usr1, "Password1.").Wait();
             
@@ -54,7 +70,15 @@ namespace icbincvdt.Data
             {
                 UserName = "per@uia.no",
                 Email = "per@uia.no",
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                FirstName = "Per",
+                LastName = "Hansen",
+                PhoneNumber = "66778899",
+                PhoneNumberConfirmed = true,
+                Address = "Eriksgate 3",
+                ZipCode = 0303,
+                City = "Støl",
+                Country = "Norway"
             };
             um.CreateAsync(usr2, "Password1.").Wait();
             
@@ -62,7 +86,15 @@ namespace icbincvdt.Data
             {
                 UserName = "knut@uia.no",
                 Email = "knut@uia.no",
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                FirstName = "Knut",
+                LastName = "Seter",
+                PhoneNumber = "11223344",
+                PhoneNumberConfirmed = true,
+                Address = "Gunnar Bjelviks Veg 4",
+                ZipCode = 0404,
+                City = "Håma",
+                Country = "Norge"
             };
             um.CreateAsync(usr3, "Password1.").Wait();
 

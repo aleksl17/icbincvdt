@@ -1,14 +1,14 @@
 ﻿@page
 @using icbincvdt.Models
-@model icbincvdt.Pages.CVs.ShareCVModel
+@model icbincvdt.Pages.CVs.ManageCVModel
 @inject UserManager<ApplicationUser> UserManager
 
 @{
     var user = UserManager.GetUserAsync(User).Result;
-    ViewData["Title"] = "CV";
+    ViewData["Title"] = "Manage CV";
 }
 
-<h1>@user.FirstName @user.LastName</h1>
+<h1>Manage</h1>
 
 <div>
     <h4>CV</h4>
@@ -22,6 +22,9 @@
                 <tr>
                     <td>
                         @Html.DisplayFor(model => model.CV.Summary)
+                    </td>
+                    <td>
+                        <a asp-page="./EditCV" asp-route-id="@Model.CV.CVID">Edit CV</a>
                     </td>
                 </tr>
             </table>
@@ -71,6 +74,9 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.EducationDateEnd)
                         </td>
+                        <td>
+                            <a asp-page="./EditEducation" asp-route-id="@item.EducationID">Edit</a>
+                        </td>
                     </tr>
                 }
             </table>
@@ -101,6 +107,9 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.ExperienceDateEnd)
                         </td>
+                        <td>
+                            <a asp-page="./EditExperience" asp-route-id="@item.ExperienceID">Edit</a>
+                        </td>
                     </tr>
                 }
             </table>
@@ -127,6 +136,9 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.SkillRating)
                         </td>
+                        <td>
+                            <a asp-page="./EditSkill" asp-route-id="@item.SkillID">Edit</a>
+                        </td>
                     </tr>
                 }
             </table>
@@ -148,6 +160,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.ReferencePhoneNumber)
+                        </td>
+                        <td>
+                            <a asp-page="./EditReference" asp-route-id="@item.ReferenceID">Edit</a>
                         </td>
                     </tr>
                 }
